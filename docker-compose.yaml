@@ -11,6 +11,10 @@ services:
       POSTGRES_DB: tacodb
     volumes:
       - tacodb:/var/lib/postgresql/data
+    networks:
+      - taconet
 volumes: 
   tacodb:
     name: tacodb
+networks:
+  taconet:
