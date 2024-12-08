@@ -2,14 +2,7 @@ spring:
   application:
     name: tacocloud
   datasource:
-    url: jdbc:postgresql://localhost:5432/tacodb
-    username: postgres
-    password: postgres
-    driver-class-name: org.postgresql.Driver
     name: tacocloud
     generate-unique-name: false
   thymeleaf:
     cache: false
-  liquibase:
-    enabled: true
-    change-log: classpath:db/changelog/db.changelog-master.yaml

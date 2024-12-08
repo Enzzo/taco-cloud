@@ -1,0 +1,59 @@
+{
+	"folders": {},
+	"connections": {
+		"postgres-jdbc-193a83d6d3d-4606f4e0decc4489": {
+			"provider": "postgresql",
+			"driver": "postgres-jdbc",
+			"name": "tacodb",
+			"save-password": true,
+			"configuration": {
+				"host": "localhost",
+				"port": "5432",
+				"database": "tacodb",
+				"url": "jdbc:postgresql://localhost:5432/tacodb",
+				"configurationType": "MANUAL",
+				"home": "postgresql_client",
+				"type": "dev",
+				"closeIdleConnection": true,
+				"provider-properties": {
+					"@dbeaver-show-non-default-db@": "false",
+					"@dbeaver-chosen-role@": ""
+				},
+				"auth-model": "native"
+			}
+		},
+		"h2_server-193a876beac-4f7a9597f11a380f": {
+			"provider": "h2",
+			"driver": "h2_server",
+			"name": "tacodb 2",
+			"save-password": true,
+			"configuration": {
+				"host": "localhost",
+				"port": "9092",
+				"database": "tacodb",
+				"url": "jdbc:h2:tcp://localhost:9092/tacodb",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"closeIdleConnection": true,
+				"auth-model": "native"
+			}
+		}
+	},
+	"virtual-models": {"postgres-jdbc-193a83d6d3d-4606f4e0decc4489":{"tacodb":{"public":{"@properties":{"erd.diagram.state":{"serialized":"\u003cdiagram version\u003d\"1\" name\u003d\"empty\" time\u003d\"202412091046\"\u003e\u003centities/\u003e\u003crelations/\u003e\u003c/diagram\u003e"}},":ingredient_ref":{"constraints":{"ingredient_ref_VK":{"type":"vpk","attributes":["ingredient"]}}}}}}},
+	"connection-types": {
+		"dev": {
+			"name": "Разработка",
+			"color": "255,255,255",
+			"description": "База данных для разработки",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"smart-commit": false,
+			"smart-commit-recover": true,
+			"auto-close-transactions": true,
+			"close-transactions-period": 1800,
+			"auto-close-connections": true,
+			"close-connections-period": 14400
+		}
+	}
+}

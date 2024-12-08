@@ -1,0 +1,1 @@
+{"resources":{"src/main/resources/schema.sql":{"default-datasource":"postgres-jdbc-193a83d6d3d-4606f4e0decc4489","default-catalog":"tacodb","default-schema":"public"}}}
