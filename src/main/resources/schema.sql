@@ -15,7 +15,8 @@ id identity,
 name varchar(50) not null,
 taco_order bigint not null,
 taco_order_key bigint not null,
-created_at timestamp not null
+created_at timestamp not NULL,
+FOREIGN KEY (taco_order) REFERENCES Taco_Order(id)
 );
 create table if not exists Ingredient (
 id varchar(4) PRIMARY key,
@@ -28,7 +29,3 @@ taco bigint not null,
 taco_key bigint not NULL,
 FOREIGN key(ingredient) REFERENCES Ingredient(id)
 );
-alter table Taco
-add foreign key (taco_order) references Taco_Order(id);
-alter table Ingredient_Ref
-add foreign key (ingredient) references Ingredient(id);
