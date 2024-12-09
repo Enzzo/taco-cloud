@@ -1,37 +1,14 @@
 {
 	"folders": {},
 	"connections": {
-		"postgres-jdbc-193a83d6d3d-4606f4e0decc4489": {
-			"provider": "postgresql",
-			"driver": "postgres-jdbc",
-			"name": "tacodb",
-			"save-password": true,
-			"configuration": {
-				"host": "localhost",
-				"port": "5432",
-				"database": "tacodb",
-				"url": "jdbc:postgresql://localhost:5432/tacodb",
-				"configurationType": "MANUAL",
-				"home": "postgresql_client",
-				"type": "dev",
-				"closeIdleConnection": true,
-				"provider-properties": {
-					"@dbeaver-show-non-default-db@": "false",
-					"@dbeaver-chosen-role@": ""
-				},
-				"auth-model": "native"
-			}
-		},
-		"h2_server-193a876beac-4f7a9597f11a380f": {
+		"h2_embedded-193aaa449ba-558414e2f040cf1f": {
 			"provider": "h2",
-			"driver": "h2_server",
-			"name": "tacodb 2",
+			"driver": "h2_embedded",
+			"name": "h2-2.3.232.jar",
 			"save-password": true,
 			"configuration": {
-				"host": "localhost",
-				"port": "9092",
-				"database": "tacodb",
-				"url": "jdbc:h2:tcp://localhost:9092/tacodb",
+				"database": "D:\\devtools\\db\\h2-2.3.232.jar",
+				"url": "jdbc:h2:D:\\devtools\\db\\h2-2.3.232.jar",
 				"configurationType": "MANUAL",
 				"type": "dev",
 				"closeIdleConnection": true,
@@ -39,7 +16,7 @@
 			}
 		}
 	},
-	"virtual-models": {"postgres-jdbc-193a83d6d3d-4606f4e0decc4489":{"tacodb":{"public":{"@properties":{"erd.diagram.state":{"serialized":"\u003cdiagram version\u003d\"1\" name\u003d\"empty\" time\u003d\"202412091046\"\u003e\u003centities/\u003e\u003crelations/\u003e\u003c/diagram\u003e"}},":ingredient_ref":{"constraints":{"ingredient_ref_VK":{"type":"vpk","attributes":["ingredient"]}}}}}}},
+	"virtual-models": {"h2_embedded-193aaa449ba-558414e2f040cf1f":{"PUBLIC":{":TACO_ORDER":{"foreign-keys":[{"entity":"node://taco-cloud/datasources/h2_embedded-193aaa449ba-558414e2f040cf1f/PUBLIC/table/TACO","constraint":"TACO_VK","attributes":{"DELIVERY_NAME":"NAME"}}]},":TACO":{"constraints":{"TACO_VK":{"type":"vpk","attributes":["NAME"]}}}}}},
 	"connection-types": {
 		"dev": {
 			"name": "Разработка",
