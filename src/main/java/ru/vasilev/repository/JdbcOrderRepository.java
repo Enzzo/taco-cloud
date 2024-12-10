@@ -11,6 +11,7 @@ import org.springframework.jdbc.core.PreparedStatementCreatorFactory;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.transaction.annotation.Transactional;
 
+import ru.vasilev.entity.IngredientRef;
 import ru.vasilev.entity.Taco;
 import ru.vasilev.entity.TacoOrder;
 
@@ -82,6 +83,26 @@ public class JdbcOrderRepository implements OrderRepository{
 				orderKey
 				)
 			);
-		return 0L;
+		GeneratedKeyHolder keyHolder = new GeneratedKeyHolder();
+		jdbcOperations.update(psc, keyHolder);
+		long tacoId = keyHolder.getKey().longValue();
+		taco.setId(tacoId);
+		
+		saveIngredientRefs(tacoId, taco.getIngredients());
+		return tacoId;
+	}
+	
+	private void saveIngredientRefs(
+		long tacoId,
+		List<IngredientRef> ingredientRefs
+		) {
+		int key = 0;
+		for(IngredientRef ingredientRef : ingredientRefs) {
+			jdbcOperations.update(
+				"insert into Ingredient_Ref (ingredient, taco, taco_key) "
+				+ "values (?, ?, ?)",
+				ingredientRef.getIngredient(), tacoId, key++
+				);
+		}
 	}
 }
