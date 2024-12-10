@@ -1,20 +1,17 @@
 services:
-  postgres:
-    image: "postgres:latest"
-    container_name: postgresdb
+  cassandra:
+    image: "cassandra:latest"
+    container_name: cassandradb
     restart: always
     ports:
-        - "5432:5432"
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: tacodb
+        - "9042:9042"
     volumes:
-      - tacodb:/var/lib/postgresql/data
+      - cassandra_data:/var/lib/cassandra
     networks:
-      - taconet
+      - cassandra-net
+      
 volumes: 
-  tacodb:
-    name: tacodb
+  cassandra_data:
+    name: cassandra_data
 networks:
-  taconet:
+  cassandra-net:

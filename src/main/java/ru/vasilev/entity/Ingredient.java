@@ -1,7 +1,5 @@
 package ru.vasilev.entity;
 
-import org.springframework.data.relational.core.mapping.Table;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.AccessLevel;
