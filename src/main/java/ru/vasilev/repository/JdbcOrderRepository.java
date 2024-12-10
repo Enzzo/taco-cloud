@@ -9,12 +9,14 @@ import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.PreparedStatementCreatorFactory;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import ru.vasilev.entity.IngredientRef;
+import ru.vasilev.entity.Ingredient;
 import ru.vasilev.entity.Taco;
 import ru.vasilev.entity.TacoOrder;
 
+@Repository
 public class JdbcOrderRepository implements OrderRepository{
 
 	private JdbcOperations jdbcOperations;
@@ -92,17 +94,34 @@ public class JdbcOrderRepository implements OrderRepository{
 		return tacoId;
 	}
 	
+//	private void saveIngredientRefs(
+//		long tacoId,
+//		List<IngredientRef> ingredientRefs
+//		) {
+//		int key = 0;
+//		for(IngredientRef ingredientRef : ingredientRefs) {
+//			jdbcOperations.update(
+//				"insert into Ingredient_Ref (ingredient, taco, taco_key) "
+//				+ "values (?, ?, ?)",
+//				ingredientRef.getIngredient(), tacoId, key++
+//				);
+//		}
+//	}
+	
+	/*
+	 * Это моя версия метода @Code saveIngredients
+	 */
 	private void saveIngredientRefs(
-		long tacoId,
-		List<IngredientRef> ingredientRefs
-		) {
-		int key = 0;
-		for(IngredientRef ingredientRef : ingredientRefs) {
-			jdbcOperations.update(
-				"insert into Ingredient_Ref (ingredient, taco, taco_key) "
-				+ "values (?, ?, ?)",
-				ingredientRef.getIngredient(), tacoId, key++
-				);
+			long tacoId,
+			List<Ingredient> ingredients
+			) {
+			int key = 0;
+			for(Ingredient ingredient : ingredients) {
+				jdbcOperations.update(
+					"insert into Ingredient_Ref (ingredient, taco, taco_key) "
+					+ "values (?, ?, ?)",
+					ingredient.getId(), tacoId, key++
+					);
+			}
 		}
-	}
 }
