@@ -35,7 +35,7 @@ public class Taco {
 	@Column("ingredients")
 	public List<IngredientUDT> ingredients = new ArrayList<>();
 
-	public void addIngredient(Ingredient ingredient) {
+	public void addIngredient(IngredientUDT ingredient) {
 		this.ingredients.add(ingredient);
 	}
 }
