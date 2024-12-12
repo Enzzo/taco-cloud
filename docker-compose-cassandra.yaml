@@ -1,0 +1,18 @@
+services:
+  cassandra:
+    image: "cassandra:latest"
+    container_name: cassandradb
+    restart: always
+    ports:
+        - "9042:9042"
+    volumes:
+      - cassandra_data:/var/lib/cassandra
+    networks:
+      - cassandra-net
+      
+volumes: 
+  cassandra_data:
+    name: cassandra_data
+networks:
+  cassandra-net:
+    name: cassandra-net

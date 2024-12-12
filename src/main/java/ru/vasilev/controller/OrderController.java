@@ -1,6 +1,5 @@
 package ru.vasilev.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +18,7 @@ import ru.vasilev.repository.OrderRepository;
 @RequestMapping("/orders")
 @SessionAttributes("tacoOrder")
 public class OrderController {
-	
+
 	private OrderRepository orderRepo;
 
 	public OrderController(OrderRepository orderRepo) {
@@ -30,16 +29,13 @@ public class OrderController {
 	public String orderForm() {
 		return "orderForm";
 	}
-	
+
 	@PostMapping
-	public String proccessOrder(
-			@Valid TacoOrder order, 
-			Errors errors,
-			SessionStatus sessionStatus) {
-		if(errors.hasErrors()) {
+	public String proccessOrder(@Valid TacoOrder order, Errors errors, SessionStatus sessionStatus) {
+		if (errors.hasErrors()) {
 			return "orderForm";
 		}
-		
+
 		log.info("Order submitted: {}", order);
 		orderRepo.save(order);
 		sessionStatus.setComplete();

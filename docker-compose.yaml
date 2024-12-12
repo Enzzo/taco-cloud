@@ -1,18 +1,17 @@
 services:
-  cassandra:
-    image: "cassandra:latest"
-    container_name: cassandradb
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
     restart: always
     ports:
-        - "9042:9042"
+      - 27017:27017
     volumes:
-      - cassandra_data:/var/lib/cassandra
+      - mongodb_data:/data/db
     networks:
-      - cassandra-net
-      
-volumes: 
-  cassandra_data:
-    name: cassandra_data
+      - mongodb-net
+volumes:
+  mongodb_data:
+    name: mongodb_data
 networks:
-  cassandra-net:
-    name: cassandra-net
+  mongodb-net:
+    name: mongodb-net
