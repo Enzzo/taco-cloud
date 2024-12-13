@@ -1,4 +1,4 @@
-package entity;
+package ru.vasilev.tacos.entity;
 
 import java.util.List;
 
