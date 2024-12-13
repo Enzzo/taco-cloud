@@ -1,1 +1,0 @@
-{"resources":{"src/main/resources/data.sql":{"default-schema":"PUBLIC","default-datasource":"h2_embedded-193aaa449ba-558414e2f040cf1f"},"src/main/resources/schema.sql":{"default-schema":"PUBLIC","default-datasource":"h2_embedded-193aaa449ba-558414e2f040cf1f"}}}
