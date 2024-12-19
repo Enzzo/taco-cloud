@@ -1,0 +1,76 @@
+databaseChangeLog:
+  - changeSet:
+    id: init-schema
+    author:
+      changes:
+        - createTable:
+          tableName: Taco_Order
+          columns:
+            - column:
+              name: id
+              type: BIGINT
+              autoIncrement: true
+              constraints:
+                primaryKey: true
+              nullable: false
+            - column:
+              name: delivery_Name
+              type: varchar(50)
+              nullable: false
+            - column:
+              name: delivery_Street
+              type: varchar(50)
+              nullable: false
+            - column:
+              name: delivery_City
+              type: varchar(50)
+              nullable: false
+            - column:
+              name: delivery_State
+              type: varchar(2)
+              nullable: false
+            - column:
+              name: delivery_Zip
+              type: varchar(10)
+              nullable: false
+            - column:
+              name: cc_number
+              type: varchar(16)
+              nullable: false
+            - column:
+              name: cc_expiration
+              type: varchar(5)
+              nullable: false
+            - column:
+              name: cc_cvv
+              type: varchar(3)
+              nullable: false
+            - column:
+              name: placed_at
+              type: timestamp
+              nullable: false
+        - createTable:
+          tableName: Taco
+          columns:
+            - column:
+              name: id
+              type: BIGINT
+              autoIncrement: true
+              constraints:
+                primaryKey: true
+            - column:
+              name: name
+              type: varchar(50)
+              nullable: false
+            - column:
+              name: taco_order
+              type: BIGINT
+              nullable: false
+            - column:
+              name: taco_order_key
+              type: BIGINT
+              nullable: false
+            - column:
+              name: created_at
+              type: TIMESTAMP
+              nullable: false
